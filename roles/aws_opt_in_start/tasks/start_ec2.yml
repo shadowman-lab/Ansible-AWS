@@ -1,7 +1,7 @@
 ---
-- name: Start EC2 Instances based on tag in region {{ item }}
+- name: Start EC2 Instances based on tag in region {{ item.region_name }}
   amazon.aws.ec2_instance:
-    region: "{{ item }}"
+    region: "{{ item.region_name }}"
     filters:
       "tag:owner": "{{ owner }}"
       "tag:env": "{{ env }}"
