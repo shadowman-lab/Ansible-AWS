@@ -21,10 +21,11 @@
 - name: Set facts all info for {{ item.region_name }}
   ansible.builtin.set_fact:
     '{{ item.region_name|replace("-", "_") }}':
-      vpc_info: '{{ vpc_info }}'
-      ec2_instance_info: '{{ ec2_instance_info }}'
-      igw_info: '{{ igw_info }}'
+      vpc_info: "{{ vpc_info }}"
+      ec2_instance_info: "{{ ec2_instance_info }}"
+      igw_info: "{{ igw_info }}"
 
 - name: Set facts all info for {{ item.region_name }}
   ansible.builtin.set_fact:
-    all_ec2_regions: "{{ all_ec2_regions | default([]) + [{item.region_name | replace('-', '_'): hostvars[inventory_hostname][item.region_name | replace('-', '_')]}] }}"
+    all_ec2_regions: "{{ all_ec2_regions | default([]) + [{item.region_name | replace('-', '_'): hostvars[inventory_hostname][item.region_name | replace('-', '_')]}]
+      }}"
