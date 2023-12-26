@@ -2,7 +2,7 @@
 # Need to supply one region for the module to work, but it will return all regions
 - name: Get all regions
   amazon.aws.aws_region_info:
-    region: "us-east-2"
+    region: us-east-2
   register: allregions
 
 - name: Loop over all ec2 regions
